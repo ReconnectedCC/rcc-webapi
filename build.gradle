@@ -29,7 +29,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "cc.reconnected:rcc-lib:${project.rcclib_version}"
+    modImplementation "cc.reconnected:rcc-library:${project.rcclibrary_version}"
 }
 
 processResources {
@@ -85,9 +85,13 @@ publishing {
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+        maven {
+            name = "ReconnectedCC"
+            url = "https://maven.reconnected.cc/releases"
+            credentials {
+                username = System.getenv("MAVEN_USERNAME_RCC")
+                password = System.getenv("MAVEN_PASSWORD_RCC")
+            }
+        }
     }
 }
