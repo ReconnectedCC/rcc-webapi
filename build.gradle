@@ -18,7 +18,7 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven { url 'https://maven.nucleoid.xyz' }
-    mavenLocal()
+    maven { url 'https://maven.reconnected.cc/releases' }
 }
 
 dependencies {
